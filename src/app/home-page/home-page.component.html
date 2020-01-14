@@ -1,0 +1,8 @@
+<h2 class="font-bold text-base px-2">The Products.</h2>
+
+<section class="flex flex-col md:flex-row p-2">
+  <article *ngFor="let product of products" class="w-full rounded border" routerLink="/">
+    <img class="rounded-t w-full object-cover object-center" src="{{ product.file.path }}" style="max-height: 250px;"/>
+    <h3 class="font-normal text-base p-2"> {{ product.title }}</h3>
+  </article>
+</section>
