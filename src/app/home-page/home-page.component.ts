@@ -1,5 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
+import { ProductService } from '../product.service';
+
+const PLACEHOLDER_PICTURES = [
+  'https://images.unsplash.com/photo-1534531173927-aeb928d54385?auto=format&fit=crop&w=400&q=80',
+  'https://images.unsplash.com/photo-1554298128-c916518a4b34?auto=format&fit=crop&w=400&q=80',
+  'https://images.unsplash.com/photo-1568121581570-a30e94219113?auto=format&fit=crop&w=400&q=80',
+  'https://images.unsplash.com/photo-1568331704166-6214f152d98c?auto=format&fit=crop&w=400&q=80',
+  'https://images.unsplash.com/photo-1551500226-b50b653e33e8?auto=format&fit=crop&w=400&q=80'
+];
+
+const randomPlaceHolder = () => PLACEHOLDER_PICTURES.splice(Math.floor(Math.random() * PLACEHOLDER_PICTURES.length), 1);
 
 @Component({
   selector: 'app-home-page',
@@ -7,26 +18,21 @@ import { Product } from '../product';
   styles: [],
 })
 export class HomePageComponent implements OnInit {
-  private readonly products: Product[] = [];
+  private products: Product[] = [];
 
-  constructor() {
-    this.products.push(
-      {
-        id: 1,
-        title: 'Daymm son',
-        description: 'Where did you find this',
-        file: { id: 1, path: 'https://images.unsplash.com/photo-1574422834548-a56c75424a5f' },
-      },
-      {
-        id: 2,
-        title: 'Cool hoor',
-        description: 'Where did you find this',
-        file: { id: 2, path: 'https://images.unsplash.com/photo-1568121581570-a30e94219113' },
-      },
-    );
+  constructor(private readonly productService: ProductService) {
   }
 
   ngOnInit() {
+    this.productService.getProducts().subscribe((products: Product[]) => {
+      this.products = products.map(product => {
+        product.file = {
+          id: 0,
+          path: randomPlaceHolder()
+        };
+        return product;
+      });
+    })
   }
 
 }

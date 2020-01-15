@@ -5,4 +5,5 @@ export interface Product {
   title: string;
   description: string | null;
   file?: File;
+  price: number;
 }
