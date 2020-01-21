@@ -4,16 +4,16 @@ import { Product } from '../models/product'
 
 @Injectable()
 export class ProductService {
-  constructor(private readonly httpClient: HttpClient) {
-  }
+    constructor(private readonly httpClient: HttpClient) {
+    }
 
-  getProducts() {
-    return this.httpClient.get<Product[]>('http://localhost:8080/product/')
-  }
+    getProducts() {
+        return this.httpClient.get<Product[]>('http://localhost:8080/product/')
+    }
 
-  findProduct(id: number) {
-    return this.httpClient.get<Product>(
-      `http://localhost:8080/product/${id}`,
-    )
-  }
+    findProduct(id: number) {
+        return this.httpClient.get<Product>(
+            `http://localhost:8080/product/${id}`,
+        )
+    }
 }

@@ -1,4 +1,4 @@
 export interface File {
-  id: number
-  path: string
+    id: number
+    path: string
 }

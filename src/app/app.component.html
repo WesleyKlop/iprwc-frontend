@@ -1,8 +1,12 @@
-<header class="w-100 flex py-2 px-4 shadow-md items-center">
-  <a class="font-bold text-2xl font-display" routerLink="/">The Store.</a>
-  <span class="flex-1"></span>
-  <a routerLink="/account" class="bg-gray-200 px-3 py-1 rounded-full">Account</a>
+<header class="w-100 flex py-2 px-4 shadow-md items-center sticky top-0 bg-white z-50">
+    <a class="font-bold text-2xl font-display" routerLink="/">The Store.</a>
+    <span class="flex-1"></span>
+    <a class="button" routerLink="/account">
+        Cart.
+    </a>
 </header>
 <main class="w-100 flex flex-col py-4 px-2">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </main>
+
+<footer class="w-100 flex p-4 bg-gray-200">The Store. Made by Wesley Klop.</footer>

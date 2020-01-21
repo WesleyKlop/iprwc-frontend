@@ -5,21 +5,25 @@
 @tailwind components;
 @tailwind utilities;
 
+.button {
+    @apply bg-gray-200 px-3 py-1 rounded-full uppercase text-center;
+}
+
 .icon-button {
-  @apply bg-gray-200 rounded-full text-center;
-  height: 40px;
-  line-height: 40px;
-  width: 40px;
+    @apply bg-gray-200 rounded-full text-center uppercase;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
 }
 
 .icon-button > .material-icons {
-  height: inherit;
-  line-height: inherit;
-  width: inherit;
+    height: inherit;
+    line-height: inherit;
+    width: inherit;
 }
 
 .abs-center {
-  @apply absolute;
-  top: 50%;
-  transform: translateY(-50%);
+    @apply absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
