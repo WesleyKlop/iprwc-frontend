@@ -1,3 +1,16 @@
-<p>product works!</p>
-
-<pre *ngIf="product | async as product">{{ product | json }}</pre>
+<p class="mb-2 ml-2">
+    <a routerLink="/">Go back.</a>
+</p>
+<div *ngIf="product$ | async as product">
+    <h2 class="header">
+        {{ product.title }}
+    </h2>
+    <div class="relative my-2">
+        <img class="rounded w-full object-cover object-center h-64" src="{{ product.file?.path || 'https://images.unsplash.com/photo-1551500226-b50b653e33e8?auto=format&fit=crop&w=400&q=80' }}"/>
+        <div class="price-overlay">
+            <div class="price-rotated">{{ (product.price / 100) | currency:'EUR' }}</div>
+        </div>
+    </div>
+    <button (click)="handleAddToCartClick(product)" class="w-full p-4 button my-4 rounded-lg">Add to cart</button>
+    <p>{{ product.description }}</p>
+</div>

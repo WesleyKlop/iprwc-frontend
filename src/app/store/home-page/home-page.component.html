@@ -1,9 +1,9 @@
-<h2 class="font-bold text-xl px-2 font-display font-bold">The Products.</h2>
+<h2 class="header">The Products.</h2>
 
 <div class="px-2">
     <section class="flex flex-wrap -mx-2">
         <app-product-item
-            (added)="handleAddProduct"
+            (added)="handleAddProduct($event)"
             *ngFor="let product of products | async"
             [product]="product"
         ></app-product-item>

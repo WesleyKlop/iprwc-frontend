@@ -41,7 +41,7 @@ export class HomePageComponent implements OnInit {
         )
     }
 
-    private handleAddProduct(product: Product): void {
+    public handleAddProduct(product: Product): void {
         this.cartService.addProduct(product)
     }
 }

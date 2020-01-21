@@ -3,7 +3,11 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
+
+.header {
+    @apply font-bold text-xl px-2 font-display font-bold;
+}
 
 .button {
     @apply bg-gray-200 px-3 py-1 rounded-full uppercase text-center;
@@ -26,4 +30,19 @@
     @apply absolute;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.price-rotated {
+    transform: rotate(-10deg);
+}
+
+.price-overlay {
+    @apply absolute right-0 bottom-0 p-4 rounded-tl-lg rounded-br text-lg;
+    background-color: hsla(0, 0%, 100%, .54);
+}
+
+@tailwind utilities;
+
+.flex-2 {
+    flex: 2;
 }
