@@ -10,7 +10,7 @@
 }
 
 .button {
-    @apply bg-gray-200 px-3 py-1 rounded-full uppercase text-center;
+    @apply bg-gray-200 px-3 py-1 rounded-lg uppercase text-center;
 }
 
 .icon-button {

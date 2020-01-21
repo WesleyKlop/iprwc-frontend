@@ -1,0 +1,15 @@
+<div #popout (focusout)="handleFocusOut($event)" class="relative" style="width: 70px; height: 32px;">
+    <button (click)="togglePopout()" class="button">
+        Cart.
+    </button>
+    <div (focusout)="handleFocusOut($event)" [hidden]="! isOpen" class="bg-white absolute rounded-lg p-4 mt-4 shadow right-0 focus:outline-none" style="top: 100%; min-width: 100px" tabindex="0">
+        <ul class="my-2 border-b">
+            <li *ngFor="let product of getProducts() | keyvalue" class="whitespace-no-wrap flex flex-no-wrap">
+                <span>{{ product.key }}:</span>
+                <div class="flex-1 mx-1"></div>
+                <span>{{ product.value }}&times;</span>
+            </li>
+        </ul>
+        <button class="bg-gray-200 w-full button" routerLink="/checkout">Checkout</button>
+    </div>
+</div>

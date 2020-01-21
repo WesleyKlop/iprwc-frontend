@@ -7,6 +7,7 @@ import { CartRepository } from './cart.repository'
 @Injectable()
 export class CartService {
     private readonly cart: Cart
+    private readonly emitter
 
     constructor(private readonly httpClient: HttpClient) {
         this.cart = CartRepository.createOrLoad()

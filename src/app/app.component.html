@@ -1,10 +1,9 @@
 <header class="w-100 flex py-2 px-4 shadow-md items-center sticky top-0 bg-white z-50">
-    <span class="flex-2"></span>
-    <a class="font-bold text-2xl font-display" routerLink="/">The Store.</a>
     <span class="flex-1"></span>
-    <a class="button" routerLink="/account">
-        Cart.
-    </a>
+    <a class="font-bold text-2xl font-display" routerLink="/">The Store.</a>
+    <span class="flex-1 flex justify-end">
+        <app-cart-popout></app-cart-popout>
+    </span>
 </header>
 <main class="w-100 flex flex-col py-4 px-2 min-h-screen">
     <router-outlet></router-outlet>
