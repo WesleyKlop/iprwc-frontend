@@ -10,10 +10,14 @@ import { ProductService } from './product.service'
 import { routing } from './store.routing'
 
 @NgModule({
-    declarations: [HomePageComponent, ProductItemComponent, ProductDetailsComponent, CartPopoutComponent],
+    declarations: [
+        HomePageComponent,
+        ProductItemComponent,
+        ProductDetailsComponent,
+        CartPopoutComponent,
+    ],
     providers: [CartService, ProductService],
     imports: [CommonModule, MatIconModule, routing],
     exports: [HomePageComponent, CartPopoutComponent],
 })
-export class StoreModule {
-}
+export class StoreModule {}

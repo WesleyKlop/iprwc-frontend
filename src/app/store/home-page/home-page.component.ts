@@ -24,8 +24,7 @@ export class HomePageComponent implements OnInit {
     constructor(
         private readonly productService: ProductService,
         private readonly cartService: CartService,
-    ) {
-    }
+    ) {}
 
     ngOnInit() {
         this.products = this.productService.getProducts().pipe(

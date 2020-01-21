@@ -17,15 +17,16 @@ export class CartPopoutComponent implements OnInit {
         this.products = this.cartService.getProducts()
     }
 
-    ngOnInit() {
-
-    }
+    ngOnInit() {}
 
     getProducts() {
-        return this.products.reduce((total, curr) => ({
-            ...total,
-            [curr.title]: (total[curr.title] || 0) + 1,
-        }), {})
+        return this.products.reduce(
+            (total, curr) => ({
+                ...total,
+                [curr.title]: (total[curr.title] || 0) + 1,
+            }),
+            {},
+        )
     }
 
     togglePopout() {
@@ -33,6 +34,9 @@ export class CartPopoutComponent implements OnInit {
     }
 
     handleFocusOut($event: FocusEvent) {
-        this.isOpen = isChildOf(this.popout.nativeElement, $event.relatedTarget as HTMLElement)
+        this.isOpen = isChildOf(
+            this.popout.nativeElement,
+            $event.relatedTarget as HTMLElement,
+        )
     }
 }

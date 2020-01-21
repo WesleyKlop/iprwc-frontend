@@ -4,7 +4,6 @@
 @tailwind base;
 @tailwind components;
 
-
 .header {
     @apply font-bold text-xl px-2 font-display font-bold;
 }
@@ -38,7 +37,7 @@
 
 .price-overlay {
     @apply absolute right-0 bottom-0 p-4 rounded-tl-lg rounded-br text-lg;
-    background-color: hsla(0, 0%, 100%, .54);
+    background-color: hsla(0, 0%, 100%, 0.54);
 }
 
 @tailwind utilities;

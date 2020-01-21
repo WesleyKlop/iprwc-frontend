@@ -9,9 +9,14 @@ import { StoreModule } from './store/store.module'
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, HttpClientModule, MatIconModule, routing, StoreModule],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        MatIconModule,
+        routing,
+        StoreModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
