@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.icon-button {
+  @apply bg-gray-200 rounded-full text-center;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+}
+
+.icon-button > .material-icons {
+  height: inherit;
+  line-height: inherit;
+  width: inherit;
+}
+
+.abs-center {
+  @apply absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
