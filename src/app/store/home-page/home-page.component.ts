@@ -17,6 +17,9 @@ const PLACEHOLDER_PICTURES = [
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styles: [],
+    host: {
+        class: 'container mx-auto',
+    },
 })
 export class HomePageComponent implements OnInit {
     private products: Observable<Product[]>

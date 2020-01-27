@@ -1,10 +1,8 @@
-<article [routerLink]="['/product/',  product.id ]" class="">
-    <img class="rounded-t w-full object-cover object-center h-64" src="{{ product.file?.path }}"/>
-    <div class="p-2 relative">
-        <h3 class="font-normal text-base -mb-1">{{ product.title }}</h3>
-        <span class="font-light text-base text-gray-700">{{ (product.price / 100) | currency:'EUR' }}</span>
-        <button (click)="handleAddProductClick($event)" class="right-0 mr-2 abs-center icon-button">
-            <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-    </div>
-</article>
+<img class="rounded-t w-full object-cover object-center h-64" src="{{ product.file?.path }}"/>
+<div class="p-2 relative">
+    <h3 class="font-normal text-base -mb-1">{{ product.title }}</h3>
+    <span class="font-light text-base text-gray-700">{{ (product.price / 100) | currency:'EUR' }}</span>
+    <button (click)="handleAddProductClick($event)" class="right-0 mr-2 abs-center icon-button button--inverted">
+        <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+</div>

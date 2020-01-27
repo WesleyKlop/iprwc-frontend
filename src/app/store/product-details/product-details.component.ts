@@ -7,9 +7,12 @@ import { CartService } from '../cart.service'
 import { ProductService } from '../product.service'
 
 @Component({
-    selector: 'app-product',
+    selector: 'app-product-details',
     templateUrl: './product-details.component.html',
     styles: [],
+    host: {
+        class: 'container mx-auto',
+    },
 })
 export class ProductDetailsComponent implements OnInit {
     private product$: Observable<Product>

@@ -5,18 +5,28 @@
 @tailwind components;
 
 .header {
-    @apply font-bold text-xl px-2 font-display font-bold;
+    @apply font-bold text-xl font-display font-bold;
 }
 
 .button {
-    @apply bg-gray-200 px-3 py-1 rounded-lg uppercase text-center;
+    @apply bg-blue-600 text-white px-3 py-1 rounded-lg uppercase text-center;
 }
 
+.button--sm {
+    @apply px-2 py-0 normal-case;
+}
+
+
+
 .icon-button {
-    @apply bg-gray-200 rounded-full text-center uppercase;
+    @apply bg-blue-600 text-white rounded-full text-center uppercase;
     height: 40px;
     line-height: 40px;
     width: 40px;
+}
+
+.button--inverted {
+    @apply text-blue-600 bg-gray-100;
 }
 
 .icon-button > .material-icons {
@@ -32,12 +42,14 @@
 }
 
 .price-rotated {
-    transform: rotate(-10deg);
+
 }
 
 .price-overlay {
-    @apply absolute right-0 bottom-0 p-4 rounded-tl-lg rounded-br text-lg;
-    background-color: hsla(0, 0%, 100%, 0.54);
+    @apply absolute right-0 bottom-0 px-2 m-4 rounded-full text-xl text-blue-600 font-display;
+    background-color: hsla(0, 0%, 100%, 0.78);
+    transform: rotate(-10deg);
+    transform-origin: center;
 }
 
 @tailwind utilities;

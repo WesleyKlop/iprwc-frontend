@@ -1,11 +1,10 @@
-<h2 class="header">The Products.</h2>
+<h2 class="header">The Products<span class="text-blue-600">.</span></h2>
 
-<div class="px-2">
-    <section class="flex flex-wrap -mx-2">
-        <app-product-item
-            (added)="handleAddProduct($event)"
-            *ngFor="let product of products | async"
-            [product]="product"
-        ></app-product-item>
-    </section>
-</div>
+<section class="flex flex-wrap -mx-2">
+    <app-product-item
+        (added)="handleAddProduct($event)"
+        *ngFor="let product of products | async"
+        [product]="product"
+        [routerLink]="['/product', product.id]"
+    ></app-product-item>
+</section>
