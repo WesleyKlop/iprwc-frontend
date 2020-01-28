@@ -1,0 +1,49 @@
+<a class="button button--outline mb-4 button--sm" routerLink="/">Continue shopping.</a>
+
+<h2 class="header">Your order<span class="text-blue-600">.</span></h2>
+<ul class="mb-2">
+    <li *ngFor="let product of products" class="py-4 border-b border-blue-600 flex">
+        <div class="w-3/4 flex flex-col">
+            <span>{{ product.title }} <a [routerLink]="['/product', product.id]" class="text-blue-600 text-sm">view</a></span>
+            <span class="text-gray-600">
+                Amount: <span class="text-black">{{ product.count }}</span>
+                <span class="text-blue-600 mx-1">&bull;</span>
+                Subtotal: <span class="text-black">{{ (product.price * product.count / 100) | currency:'EUR' }}</span>
+            </span>
+        </div>
+        <div class="w-1/4 flex items-center justify-around">
+            <button (click)="removeProduct(product)">
+                <mat-icon>remove</mat-icon>
+            </button>
+            <button (click)="addProduct(product)">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </li>
+    <li class="py-4 flex justify-end">
+        <span class="font-bold">Total:</span>&nbsp;{{ getTotal() | currency:'EUR' }}
+    </li>
+</ul>
+
+<form (submit)="submitOrder($event)" class="flex container mx-auto flex-col mt-2">
+    <h2 class="header">Your information<span class="text-blue-600">.</span></h2>
+    <label class="flex flex-col mb-2">
+        <span class="font-bold">Full name</span>
+        <input autocomplete="name" class="border-b border-blue-600 rounded-t-lg bg-gray-100 p-2" name="full_name" placeholder="Frans Bauer" required type="text"/>
+    </label>
+    <label class="flex flex-col mb-2">
+        <span class="font-bold">Email</span>
+        <input autocomplete="email" class="border-b border-blue-600 rounded-t-lg bg-gray-100 p-2" name="email" placeholder="frans.stacksjouwer@gmail.com" required type="text"/>
+    </label>
+    <label class="flex flex-col mb-2">
+        <span class="font-bold">Address</span>
+        <input autocomplete="street-address" class="border-b border-blue-600 rounded-t-lg bg-gray-100 p-2" name="street_address" placeholder="Zernikedreef 11" required type="text"/>
+    </label>
+    <label class="flex flex-col mb-2">
+        <span class="font-bold">Postal code</span>
+        <input autocomplete="postal-code" class="border-b border-blue-600 rounded-t-lg bg-gray-100 p-2" name="postal_code" placeholder="2333 CK" required type="text"/>
+    </label>
+    <label class="flex justify-end my-2">
+        <input class="button button--lg" type="submit" value="Submit order."/>
+    </label>
+</form>

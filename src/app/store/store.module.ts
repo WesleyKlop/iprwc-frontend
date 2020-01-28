@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { MatIconModule } from '@angular/material/icon'
 import { CartPopoutComponent } from './cart-popout/cart-popout.component'
 import { CartService } from './cart.service'
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component'
 import { HomePageComponent } from './home-page/home-page.component'
 import { ProductDetailsComponent } from './product-details/product-details.component'
 import { ProductItemComponent } from './product-item/product-item.component'
@@ -15,6 +16,7 @@ import { routing } from './store.routing'
         ProductItemComponent,
         ProductDetailsComponent,
         CartPopoutComponent,
+        CheckoutPageComponent,
     ],
     providers: [CartService, ProductService],
     imports: [CommonModule, MatIconModule, routing],

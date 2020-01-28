@@ -1,6 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core'
+import { Router } from '@angular/router'
+import { Subscription } from 'rxjs'
 import { isChildOf } from '../../helpers'
-import { Product } from '../../models/product'
+import { ProductWithCount } from '../../models/product'
 import { CartService } from '../cart.service'
 
 @Component({
@@ -8,25 +10,27 @@ import { CartService } from '../cart.service'
     templateUrl: './cart-popout.component.html',
     styles: [],
 })
-export class CartPopoutComponent implements OnInit {
+export class CartPopoutComponent implements OnInit, OnDestroy {
     isOpen = false
-    products: Product[] = []
-    @ViewChild('popout', { static: true }) popout: ElementRef
+    products: ProductWithCount[]
+    subscription: Subscription
+    @ViewChild('popout', { static: false }) popout: ElementRef
 
-    constructor(private readonly cartService: CartService) {
-        this.products = this.cartService.getProducts()
+    constructor(
+        private readonly cartService: CartService,
+        private readonly router: Router,
+    ) {
+
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.subscription = this.cartService.subscribeProductsWithCount((products => {
+            this.products = products
+        }))
+    }
 
-    getProducts() {
-        return this.products.reduce(
-            (total, curr) => ({
-                ...total,
-                [curr.title]: (total[curr.title] || 0) + 1,
-            }),
-            {},
-        )
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe()
     }
 
     togglePopout() {
