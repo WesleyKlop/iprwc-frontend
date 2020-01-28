@@ -2,9 +2,12 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { tap } from 'rxjs/operators'
 import { Credentials } from '../models/credentials'
+import { Role } from '../models/role.enum'
 import { User } from '../models/user'
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class AuthenticationService {
     private user: User
 
@@ -36,6 +39,10 @@ export class AuthenticationService {
 
     isLoggedIn(): boolean {
         return typeof this.user !== 'undefined'
+    }
+
+    isAdmin(): boolean {
+        return this.isLoggedIn() && this.user.role === Role.ADMIN
     }
 
     logout() {

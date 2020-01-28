@@ -6,7 +6,9 @@ import { Cart } from '../models/cart'
 import { Product, ProductWithCount } from '../models/product'
 import { CartRepository } from './cart.repository'
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class CartService {
     private readonly cart$: BehaviorSubject<Cart>
 

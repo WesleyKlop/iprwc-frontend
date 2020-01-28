@@ -3,8 +3,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router'
 import { Observable } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
 import { Product } from '../../models/product'
-import { CartService } from '../cart.service'
-import { ProductService } from '../product.service'
+import { CartService } from '../../shared/cart.service'
+import { ProductService } from '../../shared/product.service'
 
 @Component({
     selector: 'app-product-details',
@@ -21,7 +21,8 @@ export class ProductDetailsComponent implements OnInit {
         private readonly productService: ProductService,
         private readonly cartService: CartService,
         private readonly route: ActivatedRoute,
-    ) {}
+    ) {
+    }
 
     ngOnInit() {
         this.product$ = this.route.paramMap.pipe(
@@ -31,11 +32,11 @@ export class ProductDetailsComponent implements OnInit {
         )
     }
 
-    private loadProduct(id: number) {
-        return this.productService.findProduct(id)
-    }
-
     handleAddToCartClick(product: Product) {
         this.cartService.addProduct(product)
+    }
+
+    private loadProduct(id: number) {
+        return this.productService.findProduct(id)
     }
 }

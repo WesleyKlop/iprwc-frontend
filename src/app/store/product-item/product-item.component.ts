@@ -14,9 +14,11 @@ export class ProductItemComponent implements OnInit {
     @Input() public product: Product
     @Output() public added = new EventEmitter<Product>()
 
-    constructor() {}
+    constructor() {
+    }
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     handleAddProductClick($event: MouseEvent) {
         $event.stopPropagation()

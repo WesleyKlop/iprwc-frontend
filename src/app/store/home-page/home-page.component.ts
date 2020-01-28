@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { Product } from '../../models/product'
-import { CartService } from '../cart.service'
-import { ProductService } from '../product.service'
+import { CartService } from '../../shared/cart.service'
+import { ProductService } from '../../shared/product.service'
 
 const PLACEHOLDER_PICTURES = [
     'https://images.unsplash.com/photo-1534531173927-aeb928d54385?auto=format&fit=crop&w=400&q=80',
@@ -27,7 +27,8 @@ export class HomePageComponent implements OnInit {
     constructor(
         private readonly productService: ProductService,
         private readonly cartService: CartService,
-    ) {}
+    ) {
+    }
 
     ngOnInit() {
         this.products = this.productService.getProducts().pipe(

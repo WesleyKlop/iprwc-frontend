@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { Subscription } from 'rxjs'
 import { Product, ProductWithCount } from '../../models/product'
-import { CartService } from '../cart.service'
+import { CartService } from '../../shared/cart.service'
 
 @Component({
     selector: 'app-checkout-page',
