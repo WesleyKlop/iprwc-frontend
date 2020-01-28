@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core'
+import {
+    Component,
+    ElementRef,
+    OnDestroy,
+    OnInit,
+    ViewChild,
+} from '@angular/core'
 import { Router } from '@angular/router'
 import { Subscription } from 'rxjs'
 import { isChildOf } from '../../helpers'
@@ -19,14 +25,14 @@ export class CartPopoutComponent implements OnInit, OnDestroy {
     constructor(
         private readonly cartService: CartService,
         private readonly router: Router,
-    ) {
-
-    }
+    ) {}
 
     ngOnInit() {
-        this.subscription = this.cartService.subscribeProductsWithCount((products => {
-            this.products = products
-        }))
+        this.subscription = this.cartService.subscribeProductsWithCount(
+            products => {
+                this.products = products
+            },
+        )
     }
 
     ngOnDestroy(): void {

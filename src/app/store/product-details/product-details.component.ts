@@ -21,8 +21,7 @@ export class ProductDetailsComponent implements OnInit {
         private readonly productService: ProductService,
         private readonly cartService: CartService,
         private readonly route: ActivatedRoute,
-    ) {
-    }
+    ) {}
 
     ngOnInit() {
         this.product$ = this.route.paramMap.pipe(

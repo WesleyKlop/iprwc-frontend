@@ -11,15 +11,14 @@ import { User } from '../models/user'
 export class AuthenticationService {
     private user: User
 
-    constructor(private readonly httpClient: HttpClient) {
-    }
+    constructor(private readonly httpClient: HttpClient) {}
 
     login({ email, password }: Credentials) {
         return this.httpClient
             .get('http://localhost:8080/login', {
                 withCredentials: true,
                 headers: {
-                    'Authorization': `basic ${btoa(`${email}:${password}`)}`,
+                    Authorization: `basic ${btoa(`${email}:${password}`)}`,
                     'X-Requested-With': 'XMLHttpRequest', // Prevent browser auth dialog
                 },
             })

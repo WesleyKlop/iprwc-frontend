@@ -16,13 +16,17 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
     public products: ProductWithCount[]
     private subscription: Subscription
 
-    constructor(private readonly cartService: CartService, private readonly router: Router) {
-    }
+    constructor(
+        private readonly cartService: CartService,
+        private readonly router: Router,
+    ) {}
 
     ngOnInit() {
-        this.subscription = this.cartService.subscribeProductsWithCount(products => {
-            this.products = products
-        })
+        this.subscription = this.cartService.subscribeProductsWithCount(
+            products => {
+                this.products = products
+            },
+        )
     }
 
     ngOnDestroy(): void {
@@ -38,9 +42,11 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
     }
 
     public getTotal() {
-        return this.products.reduce((total, product) => {
-            return total + (product.count * product.price)
-        }, 0) / 100
+        return (
+            this.products.reduce((total, product) => {
+                return total + product.count * product.price
+            }, 0) / 100
+        )
     }
 
     public async submitOrder($event: Event) {

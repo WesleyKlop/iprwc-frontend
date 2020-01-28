@@ -8,7 +8,11 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 export const routes: Routes = [
     { path: '', pathMatch: 'full', component: HomePageComponent },
     { path: 'product/:id', component: ProductDetailsComponent },
-    { path: 'checkout', component: CheckoutPageComponent, canActivate: [AuthenticationGuard] },
+    {
+        path: 'checkout',
+        component: CheckoutPageComponent,
+        canActivate: [AuthenticationGuard],
+    },
 ]
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes)

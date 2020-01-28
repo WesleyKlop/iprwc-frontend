@@ -39,30 +39,25 @@ export class CartService {
     }
 
     public getProducts() {
-        return this
-            .cart$
-            .pipe(
-                map(cart => cart.products),
-            )
+        return this.cart$.pipe(map(cart => cart.products))
     }
 
-    public subscribeProductsWithCount(listener: (products: ProductWithCount[]) => void) {
-        return this
-            .getProducts()
-            .subscribe(products => {
-                const transformed = products
-                    .reduce((acc, curr: Product) => {
-                        if (!acc.has(curr.id)) {
-                            acc.set(curr.id, {
-                                ...curr,
-                                count: 0,
-                            })
-                        }
-                        acc.get(curr.id).count += 1
-                        return acc
-                    }, new Map<number, ProductWithCount>())
-                listener(Array.from(transformed.values()))
-            })
+    public subscribeProductsWithCount(
+        listener: (products: ProductWithCount[]) => void,
+    ) {
+        return this.getProducts().subscribe(products => {
+            const transformed = products.reduce((acc, curr: Product) => {
+                if (!acc.has(curr.id)) {
+                    acc.set(curr.id, {
+                        ...curr,
+                        count: 0,
+                    })
+                }
+                acc.get(curr.id).count += 1
+                return acc
+            }, new Map<number, ProductWithCount>())
+            listener(Array.from(transformed.values()))
+        })
     }
 
     public clearCart() {

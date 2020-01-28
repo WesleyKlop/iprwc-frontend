@@ -9,14 +9,8 @@ import { CartPopoutComponent } from './shared/cart-popout/cart-popout.component'
 
 @NgModule({
     declarations: [AppComponent, CartPopoutComponent],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        MatIconModule,
-        routing,
-    ],
+    imports: [BrowserModule, HttpClientModule, MatIconModule, routing],
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

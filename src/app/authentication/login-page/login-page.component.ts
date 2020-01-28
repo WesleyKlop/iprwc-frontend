@@ -16,11 +16,9 @@ export class LoginPageComponent implements OnInit {
         password: 'test',
     }
 
-    constructor(private readonly authService: AuthenticationService) {
-    }
+    constructor(private readonly authService: AuthenticationService) {}
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     handleLogin($event: Event) {
         $event.preventDefault()

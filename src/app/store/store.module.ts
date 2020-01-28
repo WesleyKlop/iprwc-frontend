@@ -17,5 +17,4 @@ import { routing } from './store.routing'
     imports: [CommonModule, MatIconModule, routing],
     exports: [HomePageComponent],
 })
-export class StoreModule {
-}
+export class StoreModule {}

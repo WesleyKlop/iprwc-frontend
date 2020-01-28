@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core'
-import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router'
+import {
+    ActivatedRouteSnapshot,
+    CanActivate,
+    CanLoad,
+    Route,
+    Router,
+    RouterStateSnapshot,
+    UrlSegment,
+    UrlTree,
+} from '@angular/router'
 import { Observable } from 'rxjs'
 import { AuthenticationService } from '../authentication/authentication.service'
 
@@ -7,23 +16,26 @@ import { AuthenticationService } from '../authentication/authentication.service'
     providedIn: 'root',
 })
 export class AdminAuthenticationGuard implements CanActivate, CanLoad {
-
     constructor(
         private readonly authService: AuthenticationService,
         private readonly router: Router,
-    ) {
-
-    }
+    ) {}
 
     canActivate(
         next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+        state: RouterStateSnapshot,
+    ):
+        | Observable<boolean | UrlTree>
+        | Promise<boolean | UrlTree>
+        | boolean
+        | UrlTree {
         return this.canAccess()
     }
 
     canLoad(
         route: Route,
-        segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+        segments: UrlSegment[],
+    ): Observable<boolean> | Promise<boolean> | boolean {
         return this.canAccess()
     }
 
