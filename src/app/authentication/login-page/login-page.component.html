@@ -1,0 +1,22 @@
+<form (submit)="handleLogin($event)">
+    <label class="flex flex-col mb-2">
+        <span class="font-bold">Email</span>
+        <input [(ngModel)]="credentials.email" autocomplete="email" class="border-b border-blue-600 rounded-t-lg bg-gray-100 p-2" name="email" placeholder="frans.stacksjouwer@gmail.com" required type="email"/>
+    </label>
+    <label class="flex flex-col mb-2">
+        <span class="font-bold">Full name</span>
+        <input [(ngModel)]="credentials.password" autocomplete="current-password" class="border-b border-blue-600 rounded-t-lg bg-gray-100 p-2" name="password" placeholder="hunter2" required type="password"/>
+    </label>
+    <label class="flex justify-center my-2">
+        <input class="button button--lg w-1/2" type="submit" value="Sign in."/>
+    </label>
+</form>
+
+<div class="my-2 flex flex-col items-center">
+    <div class="flex w-full items-center mb-2">
+        <div class="flex-1 border border-blue-600 mr-4"></div>
+        <span class="text-gray-600">or</span>
+        <div class="flex-1 border border-blue-600 ml-4"></div>
+    </div>
+    <a class="button button--outline w-1/2 block" routerLink="/register">register.</a>
+</div>
