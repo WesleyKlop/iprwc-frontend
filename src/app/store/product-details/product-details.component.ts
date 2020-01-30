@@ -15,7 +15,7 @@ import { ProductService } from '../../shared/product.service'
     },
 })
 export class ProductDetailsComponent implements OnInit {
-    private product$: Observable<Product>
+    public product$: Observable<Product>
 
     constructor(
         private readonly productService: ProductService,

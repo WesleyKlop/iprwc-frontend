@@ -1,6 +1,6 @@
 import { ModuleWithProviders } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { AuthenticationGuard } from '../guards/authentication.guard'
+import { AuthenticationGuard } from '../shared/guards/authentication.guard'
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component'
 import { HomePageComponent } from './home-page/home-page.component'
 import { ProductDetailsComponent } from './product-details/product-details.component'

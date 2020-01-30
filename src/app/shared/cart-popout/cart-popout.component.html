@@ -1,4 +1,4 @@
-<div #popout (focusout)="handleFocusOut($event)" *ngIf="router.url !== '/checkout'" class="relative" style="width: 70px; height: 32px;">
+<div #popout (focusout)="handleFocusOut($event)" *ngIf="router.url !== '/checkout' && !router.url.startsWith('/admin')" class="relative" style="width: 70px; height: 32px;">
     <button (click)="togglePopout()" class="button">
         Cart.
     </button>

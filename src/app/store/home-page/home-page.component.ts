@@ -22,7 +22,7 @@ const PLACEHOLDER_PICTURES = [
     },
 })
 export class HomePageComponent implements OnInit {
-    private products: Observable<Product[]>
+    public products: Observable<Product[]>
 
     constructor(
         private readonly productService: ProductService,

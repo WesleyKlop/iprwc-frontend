@@ -1,18 +1,16 @@
-<header class="w-100 p-2 shadow-md sticky top-0 bg-white z-50">
-    <div class="flex items-center container mx-auto">
-        <span class="flex-1"></span>
-        <a class="font-bold text-2xl font-display" routerLink="/">The Store<span class="text-blue-600">.</span></a>
-        <span class="flex-1 flex justify-end">
-        <app-cart-popout></app-cart-popout>
-    </span>
-    </div>
-</header>
-<main class="w-100 flex flex-col py-4 px-2 min-h-screen">
+<app-header></app-header>
+<main class="w-100 flex flex-col py-4 px-2 flex-1 justify-center">
     <router-outlet></router-outlet>
 </main>
 
 <footer class="w-100 p-4 bg-blue-600 text-white font-display">
-    <div class="container mx-auto">
+    <div class="container mx-auto text-center">
+        <div *ngIf="! authService.isLoggedIn()" class="mb-2">
+            <a routerLink="/auth/login">Login</a>
+        </div>
+        <div *ngIf="authService.isAdmin()" class="mb-2">
+            <a routerLink="/admin">Admin dashboard</a>
+        </div>
         <span class="bg-white text-black px-2 mx-1 rounded-sm">The Store<span class="text-blue-600">.</span></span>
         Made by Wesley Klop.
     </div>

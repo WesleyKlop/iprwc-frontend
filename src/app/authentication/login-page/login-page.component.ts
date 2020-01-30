@@ -11,7 +11,7 @@ import { AuthenticationService } from '../authentication.service'
     },
 })
 export class LoginPageComponent implements OnInit {
-    private readonly credentials: Credentials = {
+    public readonly credentials: Credentials = {
         email: 'wesley19097@gmail.com',
         password: 'test',
     }
