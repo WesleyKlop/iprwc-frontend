@@ -1,5 +1,5 @@
-import { Cart } from '../models/cart'
-import { ClientCart } from '../models/client-cart'
+import { Cart } from './models/cart'
+import { ClientCart } from './models/client-cart'
 
 export const STORE_CART = 'store-cart'
 

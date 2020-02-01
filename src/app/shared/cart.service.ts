@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { Cart } from '../models/cart'
-import { Product, ProductWithCount } from '../models/product'
 import { CartRepository } from './cart.repository'
+import { Cart } from './models/cart'
+import { Product, ProductWithCount } from './models/product'
 
 @Injectable({
     providedIn: 'root',
@@ -12,7 +11,7 @@ import { CartRepository } from './cart.repository'
 export class CartService {
     private readonly cart$: BehaviorSubject<Cart>
 
-    constructor(private readonly httpClient: HttpClient) {
+    constructor() {
         const cart = CartRepository.createOrLoad()
         this.cart$ = new BehaviorSubject<Cart>(cart)
 

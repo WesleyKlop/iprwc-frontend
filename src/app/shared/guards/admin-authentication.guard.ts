@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
-import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router'
-import { Observable } from 'rxjs'
-import { AuthenticationService } from '../../authentication/authentication.service'
+import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment } from '@angular/router'
+import { AuthenticationService } from '../authentication.service'
 
 @Injectable({
     providedIn: 'root',
@@ -12,32 +11,25 @@ export class AdminAuthenticationGuard implements CanActivate, CanLoad {
         private readonly router: Router,
     ) {}
 
-    canActivate(
+    async canActivate(
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot,
-    ):
-        | Observable<boolean | UrlTree>
-        | Promise<boolean | UrlTree>
-        | boolean
-        | UrlTree {
+    ): Promise<boolean> {
         return this.canAccess()
     }
 
-    canLoad(
-        route: Route,
-        segments: UrlSegment[],
-    ): Observable<boolean> | Promise<boolean> | boolean {
+    async canLoad(route: Route, segments: UrlSegment[]): Promise<boolean> {
         return this.canAccess()
     }
 
-    private canAccess() {
+    private async canAccess() {
         if (!this.authService.isLoggedIn()) {
-            this.router.navigateByUrl('/auth/login')
+            await this.router.navigateByUrl('/auth/login')
             return false
         }
 
         if (!this.authService.isAdmin()) {
-            this.router.navigateByUrl('/')
+            await this.router.navigateByUrl('/')
             return false
         }
         return true

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { AuthenticationService } from './authentication/authentication.service'
+import { AuthenticationService } from './shared/authentication.service'
 
 @Component({
     selector: 'app-root',
@@ -11,8 +11,5 @@ import { AuthenticationService } from './authentication/authentication.service'
 export class AppComponent {
     title = 'iprwc'
 
-    constructor(public readonly authService: AuthenticationService) {
-
-    }
-
+    constructor(public readonly authService: AuthenticationService) {}
 }

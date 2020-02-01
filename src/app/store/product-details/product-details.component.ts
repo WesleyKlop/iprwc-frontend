@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, ParamMap } from '@angular/router'
 import { Observable } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
-import { Product } from '../../models/product'
 import { CartService } from '../../shared/cart.service'
+import { Product } from '../../shared/models/product'
 import { ProductService } from '../../shared/product.service'
 
 @Component({

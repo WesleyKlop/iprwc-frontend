@@ -6,8 +6,11 @@ import { AdminProductPageComponent } from './admin-product-page/admin-product-pa
 import { routing } from './admin.routing'
 
 @NgModule({
-    declarations: [AdminDashboardPageComponent, AdminMainPageComponent, AdminProductPageComponent],
+    declarations: [
+        AdminDashboardPageComponent,
+        AdminMainPageComponent,
+        AdminProductPageComponent,
+    ],
     imports: [CommonModule, routing],
 })
-export class AdminModule {
-}
+export class AdminModule {}

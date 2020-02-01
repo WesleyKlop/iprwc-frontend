@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core'
 import { Router } from '@angular/router'
 import { Subscription } from 'rxjs'
-import { ProductWithCount } from '../../models/product'
 import { CartService } from '../cart.service'
 import { isChildOf } from '../helpers'
+import { ProductWithCount } from '../models/product'
 
 @Component({
     selector: 'app-cart-popout',

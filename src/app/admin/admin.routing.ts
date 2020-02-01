@@ -6,7 +6,8 @@ import { AdminProductPageComponent } from './admin-product-page/admin-product-pa
 
 export const routes: Routes = [
     {
-        path: '', component: AdminDashboardPageComponent,
+        path: '',
+        component: AdminDashboardPageComponent,
         children: [
             { path: '', pathMatch: 'full', component: AdminMainPageComponent },
             { path: 'products', component: AdminProductPageComponent },
